@@ -1,0 +1,24 @@
+= form_for @bug do |f|
+  - if @bug.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@bug.errors.count, "error")} prohibited this bug from being saved:"
+      ul
+        - @bug.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :projeto
+    = f.text_field :projeto
+  .field
+    = f.label :titulo
+    = f.text_field :titulo
+  .field
+    = f.label :versao_bug_detectado
+    = f.text_field :versao_bug_detectado
+  .field
+    = f.label :descricao
+    = f.text_field :descricao
+  .field
+    = f.label :status
+    = f.text_field :status
+  .actions = f.submit

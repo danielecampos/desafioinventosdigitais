@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Projeto:
+  = @bug.projeto
+p
+  strong Titulo:
+  = @bug.titulo
+p
+  strong Versao bug detectado:
+  = @bug.versao_bug_detectado
+p
+  strong Descricao:
+  = @bug.descricao
+p
+  strong Status:
+  = @bug.status
+
+=> link_to 'Edit', edit_bug_path(@bug)
+'|
+=< link_to 'Back', bugs_path

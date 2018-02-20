@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  projeto: one
+  titulo: MyString
+  versao_bug_detectado: MyString
+  descricao: MyString
+  status: MyString
+
+two:
+  projeto: two
+  titulo: MyString
+  versao_bug_detectado: MyString
+  descricao: MyString
+  status: MyString

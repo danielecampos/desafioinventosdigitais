@@ -1,0 +1,27 @@
+= form_for @projeto do |f|
+  - if @projeto.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@projeto.errors.count, "error")} prohibited this projeto from being saved:"
+      ul
+        - @projeto.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :usuario
+    = f.text_field :usuario
+  .field
+    = f.label :titulo
+    = f.text_field :titulo
+  .field
+    = f.label :descricao
+    = f.text_field :descricao
+  .field
+    = f.label :previsao_termino
+    = f.datetime_select :previsao_termino
+  .field
+    = f.label :status
+    = f.text_field :status
+  .field
+    = f.label :prioridade
+    = f.text_field :prioridade
+  .actions = f.submit

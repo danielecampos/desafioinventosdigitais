@@ -1,0 +1,31 @@
+h1 Listing projetos
+
+table
+  thead
+    tr
+      th Usuario
+      th Titulo
+      th Descricao
+      th Previsao termino
+      th Status
+      th Prioridade
+      th
+      th
+      th
+
+  tbody
+    - @projetos.each do |projeto|
+      tr
+        td = projeto.usuario
+        td = projeto.titulo
+        td = projeto.descricao
+        td = projeto.previsao_termino
+        td = projeto.status
+        td = projeto.prioridade
+        td = link_to 'Show', projeto
+        td = link_to 'Edit', edit_projeto_path(projeto)
+        td = link_to 'Destroy', projeto, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Projeto', new_projeto_path

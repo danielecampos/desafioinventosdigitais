@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Usuario:
+  = @projeto.usuario
+p
+  strong Titulo:
+  = @projeto.titulo
+p
+  strong Descricao:
+  = @projeto.descricao
+p
+  strong Previsao termino:
+  = @projeto.previsao_termino
+p
+  strong Status:
+  = @projeto.status
+p
+  strong Prioridade:
+  = @projeto.prioridade
+
+=> link_to 'Edit', edit_projeto_path(@projeto)
+'|
+=< link_to 'Back', projetos_path
