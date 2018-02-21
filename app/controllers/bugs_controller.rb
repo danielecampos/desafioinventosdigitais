@@ -4,6 +4,9 @@ require 'slack-notifier'
 class BugsController < ApplicationController
   before_action :set_bug, only: [:show, :edit, :update, :destroy]
   
+  #Devise
+  before_action :authenticate_user!
+  
   # GET /bugs
   # GET /bugs.json
   def index
