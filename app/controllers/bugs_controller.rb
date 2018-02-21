@@ -18,7 +18,6 @@ class BugsController < ApplicationController
   # GET /bugs/new
   def new
     @bug = Bug.new
-    
   end
 
   # GET /bugs/1/edit

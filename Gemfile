@@ -61,6 +61,6 @@ gem 'slim-rails', '=3.1.3'
 
 gem 'formtastic', '=3.1.5'
 
-gem 'devise', '=4.4.1'
+gem 'devise'
 
 gem 'slack-notifier', '=2.3.2'
