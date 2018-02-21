@@ -1,8 +1,9 @@
 h1 Lista de bugs
 
-table
+table.table.table-striped
   thead
     tr
+      th Código
       th Projeto
       th Titulo
       th Versao bug detectado
@@ -15,6 +16,7 @@ table
   tbody
     - @bugs.each do |bug|
       tr
+        td = bug.id
         td = bug.projeto.titulo
         td = bug.titulo
         td = bug.versao_bug_detectado

@@ -36,7 +36,7 @@ class BugsController < ApplicationController
         format.json { render :show, status: :created, location: @bug }
         # Slack
         notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
-        notifier.ping "Novo Bug cadastrado para o projeto: #{@bug.projeto.titulo} <https://b8d8614146d7411495dd02459d4545b0.vfs.cloud9.us-east-2.amazonaws.com/bugs/6|teste url>"
+        notifier.ping "Novo Bug cadastrado para o projeto: <https://b8d8614146d7411495dd02459d4545b0.vfs.cloud9.us-east-2.amazonaws.com/bugs/6|#{@bug.projeto.titulo}>"
       else
         format.html { render :new }
         format.json { render json: @bug.errors, status: :unprocessable_entity }
