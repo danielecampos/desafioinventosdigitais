@@ -7,22 +7,22 @@
           li = message
 
   .field
-    = f.label :usuario
-    = collection_select(:projeto, :usuario_id, Usuario.all, :id, :email)
+    = f.label :user
+    = collection_select(:projeto, :user_id, User.all, :id, :email)
   .field
     = f.label :titulo
     = f.text_field :titulo
   .field
     = f.label :descricao
-    = f.text_area :descricao
+    = f.text_field :descricao
   .field
     = f.label :previsao_termino
     = f.datetime_select :previsao_termino
   .field
     = f.label :status
-    = f.select :status, options_for_select(["A fazer", "Em Progresso", "Concluido"], :selected => f.object.status)
+    = select(:projeto, :status, ["Backlog", "A Fazer", "Em desenvolvimento", "Concluido"], { selected: f.object.status})
   .field
     = f.label :prioridade
-    = f.select :prioridade, options_for_select(["Alta", "Média", "Baixa"], :selected => f.object.prioridade)
+    = select(:projeto, :prioridade, ["Alta", "Média", "Baixa"], { selected: f.object.prioridade})
     
   .actions = f.submit

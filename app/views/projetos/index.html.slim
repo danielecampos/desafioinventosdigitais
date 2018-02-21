@@ -1,9 +1,9 @@
-h1 Lista de Projetos
+h1 Projetos Cadastrados
 
 table
   thead
     tr
-      th Usuario
+      th User
       th Titulo
       th Descricao
       th Previsao termino
@@ -16,16 +16,16 @@ table
   tbody
     - @projetos.each do |projeto|
       tr
-        td = projeto.usuario.email
+        td = projeto.user.email
         td = projeto.titulo
         td = projeto.descricao
         td = projeto.previsao_termino
         td = projeto.status
         td = projeto.prioridade
-        td = link_to 'Show', projeto
-        td = link_to 'Edit', edit_projeto_path(projeto)
-        td = link_to 'Destroy', projeto, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Listar', projeto
+        td = link_to 'Editar', edit_projeto_path(projeto)
+        td = link_to 'Apagar', projeto, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'New Projeto', new_projeto_path
+= link_to 'Novo Projeto', new_projeto_path

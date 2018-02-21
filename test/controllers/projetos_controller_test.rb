@@ -17,7 +17,7 @@ class ProjetosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create projeto" do
     assert_difference('Projeto.count') do
-      post projetos_url, params: { projeto: { descricao: @projeto.descricao, previsao_termino: @projeto.previsao_termino, prioridade: @projeto.prioridade, status: @projeto.status, titulo: @projeto.titulo, usuario_id: @projeto.usuario_id } }
+      post projetos_url, params: { projeto: { descricao: @projeto.descricao, previsao_termino: @projeto.previsao_termino, prioridade: @projeto.prioridade, status: @projeto.status, titulo: @projeto.titulo, user_id: @projeto.user_id } }
     end
 
     assert_redirected_to projeto_url(Projeto.last)
@@ -34,7 +34,7 @@ class ProjetosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update projeto" do
-    patch projeto_url(@projeto), params: { projeto: { descricao: @projeto.descricao, previsao_termino: @projeto.previsao_termino, prioridade: @projeto.prioridade, status: @projeto.status, titulo: @projeto.titulo, usuario_id: @projeto.usuario_id } }
+    patch projeto_url(@projeto), params: { projeto: { descricao: @projeto.descricao, previsao_termino: @projeto.previsao_termino, prioridade: @projeto.prioridade, status: @projeto.status, titulo: @projeto.titulo, user_id: @projeto.user_id } }
     assert_redirected_to projeto_url(@projeto)
   end
 

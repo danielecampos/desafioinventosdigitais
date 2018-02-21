@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  usuario: one
+  user: one
   titulo: MyString
   descricao: MyString
-  previsao_termino: 2018-02-20 19:24:59
+  previsao_termino: 2018-02-21 22:15:12
   status: MyString
   prioridade: MyString
 
 two:
-  usuario: two
+  user: two
   titulo: MyString
   descricao: MyString
-  previsao_termino: 2018-02-20 19:24:59
+  previsao_termino: 2018-02-21 22:15:12
   status: MyString
   prioridade: MyString

@@ -1,10 +1,9 @@
-h1 Detalhes do Projeto
-
+h1 Informações do Projeto
 p#notice = notice
 
 p
-  strong Usuario:
-  = @projeto.usuario.email
+  strong User:
+  = @projeto.user.email
 p
   strong Titulo:
   = @projeto.titulo
@@ -21,6 +20,6 @@ p
   strong Prioridade:
   = @projeto.prioridade
 
-=> link_to 'Edit', edit_projeto_path(@projeto)
+=> link_to 'Editar', edit_projeto_path(@projeto)
 '|
-=< link_to 'Back', projetos_path
+=< link_to 'Voltar', projetos_path

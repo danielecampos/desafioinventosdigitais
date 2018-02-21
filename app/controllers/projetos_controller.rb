@@ -1,8 +1,6 @@
 class ProjetosController < ApplicationController
   before_action :set_projeto, only: [:show, :edit, :update, :destroy]
-  
-  before_action :authenticate_user!
-  
+
   # GET /projetos
   # GET /projetos.json
   def index
@@ -71,6 +69,6 @@ class ProjetosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projeto_params
-      params.require(:projeto).permit(:usuario_id, :titulo, :descricao, :previsao_termino, :status, :prioridade)
+      params.require(:projeto).permit(:user_id, :titulo, :descricao, :previsao_termino, :status, :prioridade)
     end
 end
