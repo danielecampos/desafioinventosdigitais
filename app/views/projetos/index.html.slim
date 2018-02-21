@@ -1,4 +1,4 @@
-h1 Listing projetos
+h1 Lista de Projetos
 
 table
   thead
@@ -16,7 +16,7 @@ table
   tbody
     - @projetos.each do |projeto|
       tr
-        td = projeto.usuario
+        td = projeto.usuario.email
         td = projeto.titulo
         td = projeto.descricao
         td = projeto.previsao_termino

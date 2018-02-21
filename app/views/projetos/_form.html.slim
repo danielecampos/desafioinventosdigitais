@@ -8,20 +8,21 @@
 
   .field
     = f.label :usuario
-    = f.text_field :usuario
+    = collection_select(:projeto, :usuario_id, Usuario.all, :id, :email)
   .field
     = f.label :titulo
     = f.text_field :titulo
   .field
     = f.label :descricao
-    = f.text_field :descricao
+    = f.text_area :descricao
   .field
     = f.label :previsao_termino
     = f.datetime_select :previsao_termino
   .field
     = f.label :status
-    = f.text_field :status
+    = f.select :status, options_for_select(["A fazer", "Em Progresso", "Concluido"], :selected => f.object.status)
   .field
     = f.label :prioridade
-    = f.text_field :prioridade
+    = f.select :prioridade, options_for_select(["Alta", "Média", "Baixa"], :selected => f.object.prioridade)
+    
   .actions = f.submit

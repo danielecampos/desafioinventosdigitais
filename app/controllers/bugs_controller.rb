@@ -1,6 +1,9 @@
+# Importando as bibliotecas
+require 'slack-notifier'
+
 class BugsController < ApplicationController
   before_action :set_bug, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /bugs
   # GET /bugs.json
   def index
@@ -15,6 +18,7 @@ class BugsController < ApplicationController
   # GET /bugs/new
   def new
     @bug = Bug.new
+    
   end
 
   # GET /bugs/1/edit
@@ -30,6 +34,9 @@ class BugsController < ApplicationController
       if @bug.save
         format.html { redirect_to @bug, notice: 'Bug was successfully created.' }
         format.json { render :show, status: :created, location: @bug }
+        # Slack
+        notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
+        notifier.ping "Novo Bug cadastrado para o projeto: #{@bug.projeto.titulo} <https://b8d8614146d7411495dd02459d4545b0.vfs.cloud9.us-east-2.amazonaws.com/bugs/6|teste url>"
       else
         format.html { render :new }
         format.json { render json: @bug.errors, status: :unprocessable_entity }
@@ -44,6 +51,9 @@ class BugsController < ApplicationController
       if @bug.update(bug_params)
         format.html { redirect_to @bug, notice: 'Bug was successfully updated.' }
         format.json { render :show, status: :ok, location: @bug }
+        # Slack Atualização
+        notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
+        notifier.ping "Bug atualizado: #{@bug.titulo}"
       else
         format.html { render :edit }
         format.json { render json: @bug.errors, status: :unprocessable_entity }
@@ -71,4 +81,5 @@ class BugsController < ApplicationController
     def bug_params
       params.require(:bug).permit(:projeto_id, :titulo, :versao_bug_detectado, :descricao, :status)
     end
+    
 end

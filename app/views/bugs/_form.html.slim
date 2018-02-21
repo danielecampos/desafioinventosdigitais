@@ -8,7 +8,7 @@
 
   .field
     = f.label :projeto
-    = f.text_field :projeto
+    = collection_select(:bug, :projeto_id, Projeto.all, :id, :titulo)
   .field
     = f.label :titulo
     = f.text_field :titulo
@@ -17,8 +17,9 @@
     = f.text_field :versao_bug_detectado
   .field
     = f.label :descricao
-    = f.text_field :descricao
+    = f.text_area :descricao
   .field
     = f.label :status
-    = f.text_field :status
+    = f.select :status, options_for_select(["Backlog", "Selecionado para desenvolvimento", "Em progresso", "Concluido"], :selected => f.object.status)
+    
   .actions = f.submit

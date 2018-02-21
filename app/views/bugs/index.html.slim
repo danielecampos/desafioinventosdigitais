@@ -1,4 +1,4 @@
-h1 Listing bugs
+h1 Lista de bugs
 
 table
   thead
@@ -15,7 +15,7 @@ table
   tbody
     - @bugs.each do |bug|
       tr
-        td = bug.projeto
+        td = bug.projeto.titulo
         td = bug.titulo
         td = bug.versao_bug_detectado
         td = bug.descricao
