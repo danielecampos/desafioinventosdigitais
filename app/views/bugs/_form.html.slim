@@ -20,6 +20,6 @@
     = f.text_area :descricao
   .field
     = f.label :status
-    = f.select :status, options_for_select(["Backlog", "Selecionado para desenvolvimento", "Em progresso", "Concluido"], :selected => f.object.status)
+    = f.select :status, options_for_select(["Backlog", "A Fazer", "Em progresso", "Concluido"], :selected => f.object.status)
     
   .actions = f.submit

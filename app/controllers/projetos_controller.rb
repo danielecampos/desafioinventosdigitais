@@ -71,4 +71,5 @@ class ProjetosController < ApplicationController
     def projeto_params
       params.require(:projeto).permit(:user_id, :titulo, :descricao, :previsao_termino, :status, :prioridade)
     end
+  
 end

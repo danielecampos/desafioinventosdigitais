@@ -55,7 +55,6 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
-  #Adicionado
-  
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  #Add (Servir os arquivos que estao na pasta public: Arquivos estaticos: css, imgs...)
+  config.public_file_server.enabled = true
 end
