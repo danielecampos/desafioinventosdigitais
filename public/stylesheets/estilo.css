@@ -109,3 +109,5 @@ input, select, textarea {
 #check_box{
     margin-right: 10px;
 }
+
+#projeto_previsao_termino_1i, #projeto_previsao_termino_2i, #projeto_previsao_termino_3i{width: 33%; float: right;}

@@ -198,12 +198,41 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading"> Controle de Projetos</div>
-                         <!-- /.panel-heading -->
+                        <div class="panel-heading">Projetos</div>
+                        <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <!-- A FAZER  -->              
+                            <!-- A FAZER  -->   
+                            <div class="col-md-3">
+                			<div class="list-group">
+                				 <a href="#" class="list-group-item active">Projetos em desenvolvimento</a>
+                				<div class="list-group-item">
+                                    <ul id="listas">
+                                    <% Projeto.where('status=?', 'A Fazer').each do |p| %>
+                                        <li class="list-group-item"><%= link_to "Projeto: " + p.titulo, "projetos/#{p.id}" %></li>
+                                    <% end %>
+                                    </ul>
+                                </div>
+                				<div class="list-group-item">
+                					<h4 class="list-group-item-heading">
+                						List group item heading
+                					</h4>
+                					<p class="list-group-item-text">
+                						...
+                					</p>
+                				</div>
+                				<div class="list-group-item">
+                					<span class="badge">14</span>Help
+                				</div> <a class="list-group-item active"><span class="badge"><%= Projeto.count %></span>Total</a>
+                			</div>
+                		</div>
+                		<div class="col-md-3">
+                		</div>
+                		<div class="col-md-3">
+                		</div>
+                		<div class="col-md-3">
+                		</div>
                             <div id="painel-2-box-azul" class="list-group list-group-item col-md-4" style="background: #337ab7;">
-                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> A FAZER <span class="badge badge-light">4</span></b></p>
+                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> A FAZER </b></p>
                                 <div class="list-group-item">
                                     <ul id="listas">
                                     <% Projeto.where('status=?', 'A Fazer').each do |p| %>
@@ -212,28 +241,6 @@
                                     </ul>
                                 </div>
                             </div>
-                            <!-- EM PROGRESSO -->
-                            <div id="painel-2-box-turquesa" class="list-group list-group-item col-md-4" style="background: #03706a;">
-                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> EM PROGRESSO <span class="badge badge-light">4</span></b></p>
-                                <div class="list-group-item">
-                                    <ul id="listas">
-                                    <% Projeto.where('status=?', 'Em desenvolvimento').each do |p| %>
-                                        <li class="list-group-item"><%= link_to "Projeto: " + p.titulo, "projetos/#{p.id}" %></li>
-                                    <% end %>
-                                    </ul>
-                                </div>             
-                            </div>  
-                            <!--  -->
-                            <div id="painel-2-box-rosa" class="list-group list-group-item col-md-4" style="background: #ff9b00;">
-                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> CONCLUÍDO <span class="badge badge-light">4</span></b></p>
-                                <div class="list-group-item">
-                                    <ul id="listas">
-                                    <% Projeto.where('status=?', 'Concluido').each do |p| %>
-                                        <li class="list-group-item"><%= link_to "Projeto: " + p.titulo, "projetos/#{p.id}" %></li>
-                                    <% end %>
-                                    </ul>
-                                </div>             
-                            </div>         
                         </div>
                     </div>
                 </div><!-- /.col-lg-8 - Projetos-->
