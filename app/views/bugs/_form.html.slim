@@ -6,20 +6,21 @@
         - @bug.errors.full_messages.each do |message|
           li = message
 
-  .field
+  .field.form-group
     = f.label :projeto
     = collection_select(:bug, :projeto_id, Projeto.all, :id, :titulo)
   .field
     = f.label :titulo
-    = f.text_field :titulo
+    = f.text_field :titulo, :class => "form-control"
   .field
-    = f.label :versao_bug_detectado
-    = f.text_field :versao_bug_detectado
+    = f.label :versão_em_que_o_bug_foi_detectado
+    = f.text_field :versao_bug_detectado, :class => "form-control"
   .field
     = f.label :descricao
-    = f.text_area :descricao
+    = f.text_area :descricao, :class => "form-control"
   .field
     = f.label :status
     = f.select :status, options_for_select(["Backlog", "A Fazer", "Em progresso", "Concluido"], :selected => f.object.status)
     
   .actions = f.submit
+

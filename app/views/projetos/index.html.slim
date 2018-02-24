@@ -221,7 +221,7 @@ html
                 button.btn.btn-default[type="button"]
                   i.fa.fa-search
           li
-            a[href="index.html"]
+            a[href="/"]
               i.fa.fa-dashboard.fa-fw
               |  Dashboard
           li
@@ -313,91 +313,79 @@ html
     .row
       .col-lg-12
         h1.page-header
-          | Tables
+          | Projetos Cadastrados
+        div
+          b
+            | Total de Projetos Cadastrados:  
+          span
+            = teste = Projeto.count
+        br
+      .col-lg-6
+      - if flash[:error]
+        div.notice.alert.alert-danger.col-md-6
+          = flash[:error]
+        
+      - if flash[:notice]
+        div.notice.alert.alert-success.col-md-6
+          = flash[:notice]
+    
     .row
       .col-lg-12
         .panel.panel-default
           .panel-heading
-            |  DataTables Advanced Tables 
-          .panel-body
-            table#dataTables-example.table.table-striped.table-bordered.table-hover[width="100%"]
-              thead
-                tr
-                  th
-                    |
-                  th
-                    |
-                  th
-                    |
-                  th
-                    | Usuário
-                  th
-                    | Titulo
-                  th
-                    | Descrição
-                  th
-                    | Previsão de Entrega
-                  th
-                    | Status
-                  th
-                    | Prioridade
-                  th
-                    | Bug(s) 
-              tbody
-              - @projetos.each do |projeto|
-                tr
-                  td = link_to 'Lista', projeto
-                  td = link_to 'Editar', edit_projeto_path(projeto)
-                  td = link_to 'Apagar', projeto, data: { confirm: 'Are you sure?' }, method: :delete
-                  td = projeto.user.email
-                  td = projeto.titulo
-                  td = projeto.descricao
-                  td = projeto.previsao_termino
-                  td = projeto.status
-                  td = projeto.prioridade
+            |  Projetos Cadastrados
+          .table-responsive-sm
+            .panel-body
+              table#dataTables-example.table.table-striped.table-bordered.table-hover[width="100%"]
+                thead
+                  tr
+                    th 
+                      | Vizualizar
+                    th
+                      | Editar
+                    th
+                      | Apagar
+                    th
+                      | Usuário
+                    th
+                      | Titulo
+                    th
+                      | Descrição
+                    th
+                      | Previsão de Entrega
+                    th
+                      | Status
+                    th
+                      | Prioridade
+                    th
+                      | Bugs
                   
-            .well
-              h4
-                | DataTables Usage Information
-              p
-                | DataTables is a very flexible, advanced tables plugin for jQuery. In SB Admin, we are using a specialized version of DataTables built for Bootstrap 3. We have also customized the table headings to use Font Awesome icons in place of images. For complete documentation on DataTables, visit their website at 
-                a[target="_blank" href="https://datatables.net/"]
-                  | https://datatables.net/
-                | .
-              a.btn.btn-default.btn-lg.btn-block[target="_blank" href="https://datatables.net/"]
-                | View DataTables Documentation
-  h1 Projetos Cadastrados
-  
-  table.table
-    thead
-      tr
-        th User
-        th Titulo
-        th Descricao
-        th Previsao termino
-        th Status
-        th Prioridade
-        th Bugs 
-        th
-        th
-  
-    tbody
-      - @projetos.each do |projeto|
-        tr
-          td = projeto.user.email
-          td = projeto.titulo
-          td = projeto.descricao
-          td = projeto.previsao_termino
-          td = projeto.status
-          td = projeto.prioridade
-          td = 
-          td = link_to 'Listar', projeto
-          td = link_to 'Editar', edit_projeto_path(projeto)
-          td = link_to 'Apagar', projeto, data: { confirm: 'Are you sure?' }, method: :delete
-  
-  br
-  
-  = link_to 'Novo Projeto', new_projeto_path
+                tbody
+                - @projetos.each do |projeto|
+                  tr
+                    td.acao = link_to(projeto) do
+                         i#link-vizualizar.fa.fa-eye[aria-hidden="true"]
+                    td.acao = link_to edit_projeto_path(projeto) do
+                         i#link-editar.fa.fa-pencil-square-o[aria-hidden="true"]
+                    td.acao = link_to projeto, data: { confirm: 'Deseja apagar esse projeto?' }, method: :delete do
+                         i#link-apagar.fa.fa-times[aria-hidden="true"]
+                    td = projeto.user.email
+                    td = projeto.titulo
+                    td = projeto.descricao
+                    td = projeto.previsao_termino
+                    td = projeto.status
+                    td = projeto.prioridade
+                    td = projeto.bugs.count
+
+                  
+        .panel.panel-default
+          .panel-heading
+            | Outras Ações 
+          .panel-body#painel
+            = link_to 'Novo Projeto', new_projeto_path, :id => "botao"
+            '
+            = link_to 'Gerar Relatório', new_projeto_path, :id => "botao"
+ 
 
 script[src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"]
 script[src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js"]

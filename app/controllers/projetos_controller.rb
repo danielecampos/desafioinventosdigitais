@@ -54,10 +54,19 @@ class ProjetosController < ApplicationController
   # DELETE /projetos/1
   # DELETE /projetos/1.json
   def destroy
-    @projeto.destroy
-    respond_to do |format|
-      format.html { redirect_to projetos_url, notice: 'Projeto was successfully destroyed.' }
-      format.json { head :no_content }
+    if @projeto.bugs.count == 0
+      # Se não tiver bug
+      @projeto.destroy
+      respond_to do |format|
+        format.html { redirect_to projetos_url, notice: 'Projeto deletado com sucesso.' }
+        format.json { head :no_content }
+      end
+    else
+      # Se tiver bug
+      respond_to do |format|
+        flash[:error] = "Não foi possivel excluir esse projeto porque ele tem bugs vinculados a ele."
+        format.html { redirect_to projetos_url }
+      end
     end
   end
 

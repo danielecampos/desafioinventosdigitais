@@ -38,7 +38,7 @@ class BugsController < ApplicationController
         format.json { render :show, status: :created, location: @bug }
         # Slack
         notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
-        notifier.ping "Novo Bug cadastrado para o projeto: <https://b8d8614146d7411495dd02459d4545b0.vfs.cloud9.us-east-2.amazonaws.com/bugs/6|#{@bug.projeto.titulo}>"
+        notifier.ping "Novo Bug cadastrado para o projeto: #{@bug.projeto.titulo}"
       else
         format.html { render :new }
         format.json { render json: @bug.errors, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class BugsController < ApplicationController
         format.json { render :show, status: :ok, location: @bug }
         # Slack Atualização
         notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
-        notifier.ping "Bug atualizado: #{@bug.titulo}"
+        notifier.ping "O Bug #{@bug.titulo} foi atualizado"
       else
         format.html { render :edit }
         format.json { render json: @bug.errors, status: :unprocessable_entity }
@@ -68,7 +68,7 @@ class BugsController < ApplicationController
   def destroy
     @bug.destroy
     respond_to do |format|
-      format.html { redirect_to bugs_url, notice: 'Bug was successfully destroyed.' }
+      format.html { redirect_to bugs_url, notice: 'Bug deletado com sucesso.' }
       format.json { head :no_content }
     end
   end
