@@ -42,7 +42,8 @@
                   | Versão
                 th
                   | Status
-                th acao
+                th 
+                  | Ação
             tbody
             - @projeto.bugs.each do |b|
               tr
@@ -50,9 +51,8 @@
                 td = b.titulo
                 td = b.versao_bug_detectado
                 td = b.status
-                td 
-          
-        
+                td = link_to edit_projeto_path(projeto) do
+
         => link_to 'Editar', edit_projeto_path(@projeto), :id => "botao"
         '
         =< link_to 'Voltar', projetos_path, :id => "botao"
