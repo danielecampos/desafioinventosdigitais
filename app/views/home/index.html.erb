@@ -1,111 +1,5 @@
 
-
-<div id="wrapper">
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">SiGPro</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- LOGO -->
-                <center><img src = "/sigpro-pequeno.png"></center>
-               
-            </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-tasks">
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                             
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-tasks -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Vizualizar Perfil</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configurações</a>
-                        </li>
-                        <li class="divider"></li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-                <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <div id="menu-esq" class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="flot.html">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div id="page-wrapper">
+    <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Painel de Controle</h1>
@@ -159,54 +53,34 @@
                     </div>
                 </div>
             </div>
-
+<!-- PAINEL PROJETOS -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">Projetos</div>
-                        <!-- /.panel-heading -->
                         <div class="panel-body">
                             <!-- A FAZER  -->   
-                            <div class="col-md-3">
-                			<div class="list-group">
-                				 <a href="#" class="list-group-item active">Projetos em desenvolvimento</a>
-                				<div class="list-group-item">
-                                    <ul id="listas">
-                                    
-                                    </ul>
-                                </div>
-                				<div class="list-group-item">
-                					<h4 class="list-group-item-heading">
-                						List group item heading
-                					</h4>
-                					<p class="list-group-item-text">
-                						...
-                					</p>
-                				</div>
-                				<div class="list-group-item">
-                					<span class="badge"></span>
-                				</div> <a class="list-group-item active"><span class="badge"><%= Projeto.count %></span>Total</a>
-                			</div>
+                            <div class="col-md-6">
+                    			<div class="list-group">
+                    				<a href="#" class="list-group-item active">Projetos Recentes</a>
+                    				<div class="list-group-item">
+                    					<p class="list-group-item-text">
+                    						<ul id="listas">
+                                                <% Projeto.last(5).each do |p| %>
+                                                    <li class="list-group-item"><%= link_to "Projeto: " + p.titulo, "projetos/#{p.id}" %></li>
+                                                <% end %>
+                                            </ul>
+                    					</p>
+                    				</div>
+                    				<div class="list-group-item">
+                    					<span class="badge"></span>
+                    				</div> <a class="list-group-item active"><span class="badge"><%= Projeto.count %></span>Total de Projetos Cadastrados</a>
+                    			</div>
+                		    </div>
                 		</div>
-                		<div class="col-md-3">
-                		</div>
-                		<div class="col-md-3">
-                		</div>
-                		<div class="col-md-3">
-                		</div>
-                            <div id="painel-2-box-azul" class="list-group list-group-item col-md-4" style="background: #337ab7;">
-                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> A FAZER </b></p>
-                                <div class="list-group-item">
-                                    <ul id="listas">
-                                    <% Projeto.where('status=?', 'A Fazer').each do |p| %>
-                                        <li class="list-group-item"><%= link_to "Projeto: " + p.titulo, "projetos/#{p.id}" %></li>
-                                    <% end %>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div><!-- /.col-lg-8 - Projetos-->
+                </div>
+            </div>
                 
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -226,7 +100,7 @@
                             </div>
                             <!-- STATUS RESOLVIDO -->
                             <div id="painel-2-box-azul" class="list-group list-group-item col-md-6" style="background: #03706a;">
-                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i>STATUS: RESOLVIDO <span class="badge badge-light"><%= Bug.where("status='Resolvido'").count %></span></b></p>
+                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> STATUS: RESOLVIDO <span class="badge badge-light"><%= Bug.where("status='Resolvido'").count %></span></b></p>
                                 <div class="list-group-item">
                                     <ul id="listas">
                                         <% Bug.where('status=?', 'Resolvido').each do |b| %>

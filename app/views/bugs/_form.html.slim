@@ -22,5 +22,5 @@
     = f.label :status
     = f.select :status, options_for_select(["Aberto", "Resolvido"], :selected => f.object.status)
   
-  .actions = f.submit
+  .actions = f.submit :Atualizar, :id => "botao"
   br

@@ -112,3 +112,12 @@ input, select, textarea {
 
 #projeto_previsao_termino_1i, #projeto_previsao_termino_2i, #projeto_previsao_termino_3i{width: 33%; float: right;}
 input#botao{padding-bottom: 30px;}
+.alert{
+    color: #1b1e21;
+    background-color: #d6d8d9;
+    border-color: #c6c8ca;
+    width:50%;
+    position: sticky;
+    margin-top:15px;
+	left: 25%;
+}

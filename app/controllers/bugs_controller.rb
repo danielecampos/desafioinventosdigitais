@@ -34,7 +34,7 @@ class BugsController < ApplicationController
 
     respond_to do |format|
       if @bug.save
-        format.html { redirect_to @bug, notice: 'Bug was successfully created.' }
+        format.html { redirect_to @bug, notice: 'Bug criado com sucesso.' }
         format.json { render :show, status: :created, location: @bug }
         # Slack
         notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
@@ -51,7 +51,7 @@ class BugsController < ApplicationController
   def update
     respond_to do |format|
       if @bug.update(bug_params)
-        format.html { redirect_to @bug, notice: 'Bug was successfully updated.' }
+        format.html { redirect_to @bug, notice: 'Bug atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @bug }
         # Slack Atualização
         notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
