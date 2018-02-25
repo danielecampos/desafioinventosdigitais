@@ -1,41 +1,6 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
 
-        <title>SB Admin 2 - Bootstrap Admin Theme</title>
-        
-        <link href="/stylesheets/estilo.css" rel="stylesheet">
-        
-        <!-- Bootstrap Core CSS -->
-        <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    
-        <!-- MetisMenu CSS -->
-        <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-    
-        <!-- Custom CSS -->
-        <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
-    
-        <!-- Morris Charts CSS -->
-        <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.css" rel="stylesheet">
-    
-        <!-- Custom Fonts -->
-        <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
 
     <div id="wrapper">
-
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -207,9 +172,7 @@
                 				 <a href="#" class="list-group-item active">Projetos em desenvolvimento</a>
                 				<div class="list-group-item">
                                     <ul id="listas">
-                                    <% Projeto.where('status=?', 'A Fazer').each do |p| %>
-                                        <li class="list-group-item"><%= link_to "Projeto: " + p.titulo, "projetos/#{p.id}" %></li>
-                                    <% end %>
+                                    
                                     </ul>
                                 </div>
                 				<div class="list-group-item">
@@ -221,7 +184,7 @@
                 					</p>
                 				</div>
                 				<div class="list-group-item">
-                					<span class="badge">14</span>Help
+                					<span class="badge"></span>
                 				</div> <a class="list-group-item active"><span class="badge"><%= Projeto.count %></span>Total</a>
                 			</div>
                 		</div>
@@ -250,50 +213,28 @@
                         <div class="panel-heading">Controle de Bugs</div>
                          <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <!-- BACKLOG  -->              
-                            <div id="painel-2-box-laranja" class="list-group list-group-item col-md-3" style="background: #337ab7;">
-                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> BACKLOG <span class="badge badge-light"><%= Bug.where("status='Backlog'").count %></span></b></p>
+                            <!-- STATUS ABERTO  -->              
+                            <div id="painel-2-box-laranja" class="list-group list-group-item col-md-6" style="background: #337ab7;">
+                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> STATUS: ABERTO <span class="badge badge-light"><%= Bug.where("status='Aberto'").count %></span></b></p>
                                 <div class="list-group-item">
                                     <ul id="listas">
-                                        <% Bug.where('status=?', 'Backlog').each do |b| %>
+                                        <% Bug.where('status=?', 'Aberto').each do |b| %>
                                             <li class="list-group-item"><%= link_to "Bug: " + b.titulo, "bugs/#{b.id}" %></li>
                                         <% end %>
                                     </ul>
                                 </div>
                             </div>
-                            <!-- A FAZER -->
-                            <div id="painel-2-box-azul" class="list-group list-group-item col-md-3" style="background: #03706a;">
-                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> A FAZER <span class="badge badge-light"><%= Bug.where("status='A Fazer'").count %></span></b></p>
+                            <!-- STATUS RESOLVIDO -->
+                            <div id="painel-2-box-azul" class="list-group list-group-item col-md-6" style="background: #03706a;">
+                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i>STATUS: RESOLVIDO <span class="badge badge-light"><%= Bug.where("status='Resolvido'").count %></span></b></p>
                                 <div class="list-group-item">
                                     <ul id="listas">
-                                        <% Bug.where('status=?', 'A Fazer').each do |b| %>
+                                        <% Bug.where('status=?', 'Resolvido').each do |b| %>
                                             <li class="list-group-item"><%= link_to "Bug: " + b.titulo, "bugs/#{b.id}" %></li>
                                         <% end %>
                                     </ul>
                                 </div>             
                             </div> 
-                            <!-- EM PROGRESSO  -->              
-                            <div id="painel-2-box-turquesa" class="list-group list-group-item col-md-3" style="background: #337ab7;">
-                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> EM PROGRESSO <span class="badge badge-light"><%= Bug.where("status='Em progresso'").count %></span></b></p>
-                                <div class="list-group-item">
-                                    <ul id="listas">
-                                        <% Bug.where('status=?', 'Em progresso').each do |b| %>
-                                            <li class="list-group-item"><%= link_to "Bug: " + b.titulo, "bugs/#{b.id}" %></li>
-                                        <% end %>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- CONCLUIDO -->
-                            <div id="painel-2-box-rosa" class="list-group list-group-item col-md-3" style="background: #ff9b00;">
-                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> CONCLUÍDO <span class="badge badge-light"><%= Bug.where("status='Concluido'").count %></span></b></p>
-                                <div class="list-group-item">
-                                    <ul id="listas">
-                                    <% Bug.where('status=?', 'Concluido').each do |p| %>
-                                        <li class="list-group-item"><%= link_to "Bug: " + p.titulo, "bugs/#{p.id}" %></li>
-                                    <% end %>
-                                    </ul>
-                                </div>             
-                            </div>         
                         </div>
                     </div>
                 </div><!-- /.col-lg-8 - Projetos-->
@@ -305,17 +246,3 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.js"></script>
-    <!-- Morris Charts JavaScript -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/raphael/raphael.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/data/morris-data.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
-</body>
-</html>

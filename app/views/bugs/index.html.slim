@@ -314,7 +314,7 @@ html
       .col-lg-12
         h1.page-header
           | Bugs Cadastrados
-        div.alert.alert-success.col-md-2
+        div
           b
             | Total de Projetos Cadastrados:  
           span
@@ -339,7 +339,6 @@ html
                 tr
                   th Vizualizar
                   th Editar
-                  th Apagar
                   th Código
                   th Projeto
                   th Titulo
@@ -354,8 +353,6 @@ html
                       i#link-vizualizar.fa.fa-eye[aria-hidden="true"]
                     td.acao = link_to edit_bug_path(bug) do
                        i#link-editar.fa.fa-pencil-square-o[aria-hidden="true"]
-                    td.acao = link_to bug, data: { confirm: 'Deseja apagar esse Bug?' }, method: :delete do
-                       i#link-apagar.fa.fa-times[aria-hidden="true"]
                     td = bug.id
                     td = bug.projeto.titulo
                     td = bug.titulo

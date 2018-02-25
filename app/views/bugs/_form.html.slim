@@ -20,7 +20,7 @@
     = f.text_area :descricao, :class => "form-control"
   .field
     = f.label :status
-    = f.select :status, options_for_select(["Backlog", "A Fazer", "Em progresso", "Concluido"], :selected => f.object.status)
-    
+    = f.select :status, options_for_select(["Aberto", "Resolvido"], :selected => f.object.status)
+  
   .actions = f.submit
-
+  br

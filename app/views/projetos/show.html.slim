@@ -114,9 +114,6 @@ html
           strong Previsão de termino: 
           = @projeto.previsao_termino
         p
-          strong Status: 
-          = @projeto.status
-        p
           strong Prioridade: 
           = @projeto.prioridade
         - if @projeto.bugs.count > 0
@@ -134,6 +131,7 @@ html
                   | Versão
                 th
                   | Status
+                th acao
             tbody
             - @projeto.bugs.each do |b|
               tr
@@ -141,13 +139,16 @@ html
                 td = b.titulo
                 td = b.versao_bug_detectado
                 td = b.status
+                td 
           
         
         => link_to 'Editar', edit_projeto_path(@projeto), :id => "botao"
         '
         =< link_to 'Voltar', projetos_path, :id => "botao"
-      
-
+        '
+        =< link_to 'Excluir', projeto_path(@projeto), method: :delete, :id => "botao"
+ 
+        
 
 script[src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"]
 script[src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js"]

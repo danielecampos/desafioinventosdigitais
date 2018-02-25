@@ -14,12 +14,10 @@ html
     link[href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.css" rel="stylesheet"]
     link[href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"]
   body
-        
     == render 'form'
-        
-    => link_to 'Mostar', @projeto
-    '|
-    =< link_to 'Voltar', projetos_path
+     => link_to 'Mostar', @projeto, :id => "botao"
+      '
+     =< link_to 'Voltar', projetos_path, :id => "botao"
 
 script[src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"]
 script[src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js"]

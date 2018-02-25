@@ -1,6 +1,9 @@
 class ProjetosController < ApplicationController
   before_action :set_projeto, only: [:show, :edit, :update, :destroy]
 
+#Devise
+  before_action :authenticate_user!
+  
   # GET /projetos
   # GET /projetos.json
   def index
@@ -64,8 +67,8 @@ class ProjetosController < ApplicationController
     else
       # Se tiver bug
       respond_to do |format|
-        flash[:error] = "Não foi possivel excluir esse projeto porque ele tem bugs vinculados a ele."
-        format.html { redirect_to projetos_url }
+        format.html { redirect_to projetos_url, flash: {error: 'Não foi possivel excluir esse projeto porque ele tem bugs vinculados a ele.'} }
+        format.json { head :no_content }
       end
     end
   end

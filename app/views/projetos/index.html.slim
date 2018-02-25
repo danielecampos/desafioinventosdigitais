@@ -320,15 +320,6 @@ html
           span
             = teste = Projeto.count
         br
-      .col-lg-6
-      - if flash[:error]
-        div.notice.alert.alert-danger.col-md-6
-          = flash[:error]
-        
-      - if flash[:notice]
-        div.notice.alert.alert-success.col-md-6
-          = flash[:notice]
-    
     .row
       .col-lg-12
         .panel.panel-default
@@ -354,8 +345,6 @@ html
                     th
                       | Previsão de Entrega
                     th
-                      | Status
-                    th
                       | Prioridade
                     th
                       | Bugs
@@ -373,7 +362,6 @@ html
                     td = projeto.titulo
                     td = projeto.descricao
                     td = projeto.previsao_termino
-                    td = projeto.status
                     td = projeto.prioridade
                     td = projeto.bugs.count
 

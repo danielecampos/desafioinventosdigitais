@@ -14,91 +14,8 @@ html
     link[href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.css" rel="stylesheet"]
     link[href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"]
   body
-    #wrapper
-      nav.navbar.navbar-default.navbar-static-top[role="navigation" style="margin-bottom: 0"]
-        .navbar-header
-          button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
-            span.sr-only
-              | SiGPro
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          center
-            img[src="/sigpro-pequeno.png"]
-        ul.nav.navbar-top-links.navbar-right
-          li.dropdown
-            a.dropdown-toggle[data-toggle="dropdown" href="#"]
-              i.fa.fa-tasks.fa-fw
-              i.fa.fa-caret-down
-            ul.dropdown-menu.dropdown-tasks
-              li.divider
-              li
-                a.text-center[href="#"]
-
-          li.dropdown
-            a.dropdown-toggle[data-toggle="dropdown" href="#"]
-              i.fa.fa-bell.fa-fw
-              i.fa.fa-caret-down
-            ul.dropdown-menu.dropdown-alerts
-              li
-                a[href="#"]
-
-              li.divider
-              li
-                a[href="#"]
-
-          li.dropdown
-            a.dropdown-toggle[data-toggle="dropdown" href="#"]
-              i.fa.fa-user.fa-fw
-              i.fa.fa-caret-down
-            ul.dropdown-menu.dropdown-user
-              li
-                a[href="#"]
-                  i.fa.fa-user.fa-fw
-                  |  Vizualizar Perfil
-              li
-                a[href="#"]
-                  i.fa.fa-gear.fa-fw
-                  |  Configurações
-              li.divider
-          li
-            = link_to 'Sair', destroy_user_session_path, method: :delete
-        #menu-esq.navbar-default.sidebar[role="navigation"]
-          .sidebar-nav.navbar-collapse
-            ul#side-menu.nav
-              li.sidebar-search
-                .input-group.custom-search-form
-                  input.form-control[type="text" placeholder="Search..."]
-                  span.input-group-btn
-                    button.btn.btn-default[type="button"]
-                      i.fa.fa-search
-              li
-                a[href="/"]
-                  i.fa.fa-dashboard.fa-fw
-                  |  Dashboard
-              li
-                a[href="#"]
-                  i.fa.fa-bar-chart-o.fa-fw
-                  |  Charts
-                  span.fa.arrow
-                ul.nav.nav-second-level
-                  li
-                    a[href="flot.html"]
-                      | Flot Charts
-                  li
-                    a[href="morris.html"]
-                      | Morris.js Charts
-      #page-wrapper
-        nav[aria-label="breadcrumb"]
-        ol.breadcrumb
-          li.breadcrumb-item
-            a[href="/"]
-              | Home
-          li.breadcrumb-item
-            a[href="#"]
-              | Library
-        .col-md-6
-          = form_for @projeto do |f|
+    .col-md-6
+      = form_for @projeto do |f|
             - if @projeto.errors.any?
               #error_explanation
                 h2 = "#{pluralize(@projeto.errors.count, "error")} prohibited this projeto from being saved:"
@@ -119,9 +36,6 @@ html
               = f.label :previsão_de_termino
               .row
               = f.date_select :previsao_termino
-            .field
-              = f.label :status
-              = select(:projeto, :status, ["Backlog", "A Fazer", "Em desenvolvimento", "Concluido"], { selected: f.object.status})
             .field
               = f.label :prioridade
               = select(:projeto, :prioridade, ["Alta", "Média", "Baixa"], { selected: f.object.prioridade})

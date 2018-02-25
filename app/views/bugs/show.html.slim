@@ -340,10 +340,10 @@ html
     p
       strong Status:
       = @bug.status
-    
-    => link_to 'Edit', edit_bug_path(@bug), :id => "botao"
+    br
+    => link_to 'Editar', edit_bug_path(@bug), :id => "botao"
     '
-    =< link_to 'Back', bugs_path, :id => "botao"
+    =< link_to 'Voltar', bugs_path, :id => "botao"
 
 script[src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"]
 script[src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js"]

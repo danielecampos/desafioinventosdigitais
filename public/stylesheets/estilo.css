@@ -111,3 +111,4 @@ input, select, textarea {
 }
 
 #projeto_previsao_termino_1i, #projeto_previsao_termino_2i, #projeto_previsao_termino_3i{width: 33%; float: right;}
+input#botao{padding-bottom: 30px;}
