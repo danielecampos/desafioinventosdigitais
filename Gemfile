@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 ruby '2.4.1'
-gem 'bundle'
 
 # git_source(:github) do |repo_name|
 #   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
