@@ -37,8 +37,6 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.3.13'
 end
 
 group :development do
@@ -50,10 +48,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :production do
-  gem 'pg', '~> 0.21.0'
-end
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -63,3 +57,4 @@ gem 'slim-rails', '=3.1.3'
 gem 'formtastic', '=3.1.5'
 gem 'devise'
 gem 'slack-notifier', '=2.3.2'
+gem 'pg', '~> 0.21.0'
