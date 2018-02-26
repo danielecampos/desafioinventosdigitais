@@ -57,28 +57,35 @@
             </div>
         </div>
     </div>
-<!-- PAINEL PROJETOS -->
+
+    <!-- PAINEL PROJETOS -->
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Projetos</div>
                 <div class="panel-body">
-                    <!-- A FAZER  -->   
-                    <div class="col-md-12">
-                    	<div class="list-group">
-                    		<div class="list-group-item">
-                    			<p class="list-group-item-text">
-                        			<ul id="listas">
-                                        <% Projeto.last(10).each do |p| %>
+                    <div class="col-md-4">
+            			<div class="list-group">
+            				 <a href="#" class="list-group-item active">Mais Recentes</a>
+            				<div class="list-group-item"></div>
+            				<div class="list-group-item">
+            					<h4 class="list-group-item-heading">
+                					<ul id="listas">
+                						<% Projeto.last(10).each do |p| %>
                                             <li class="list-group-item">
-                                                <%= link_to "Projeto: " + p.titulo + " | Descrição: " + p.descricao, "projetos/#{p.id}" %>
+                                                <%= link_to "Projeto: " + p.titulo, "projetos/#{p.id}" %>
                                             </li>
                                         <% end %>
-                                    </ul>
-                    		    </p>
-                    		</div>
-                    	</div>
-                	</div>
+                                        </ul>
+            					</h4>
+            					<p class="list-group-item-text">
+            						...
+            					</p>
+            				</div>
+            				<div class="list-group-item">
+            				</div> <a class="list-group-item active"><span class="badge"><%= Projeto.count%></span>Total</a>
+            			</div>
+            		</div>
                 </div>
             </div>
         </div>
