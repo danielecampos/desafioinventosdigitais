@@ -1,122 +1,113 @@
 
-    <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Painel de Controle</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div id="painel-1-box" class="panel">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i id="painel-1-icon" class="fa fa-cubes"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge"><%= Projeto.count %></div>
-                                    <div>Projetos Cadastrados</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="/projetos">
-                            <div class="panel-footer">
-                                <span class="pull-left">Ver Lista de Projetos</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div id="painel-1-box" class="panel">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i id="painel-1-icon" class="fa fa-exclamation-triangle"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge"><%= Bug.count %></div>
-                                    <div>Bugs Cadastrados</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="/bugs">
-                            <div class="panel-footer">
-                                <span class="pull-left">Ver Lista de Bugs</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-<!-- PAINEL PROJETOS -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Projetos</div>
-                        <div class="panel-body">
-                            <!-- A FAZER  -->   
-                            <div class="col-md-6">
-                    			<div class="list-group">
-                    				<a href="#" class="list-group-item active">Projetos Recentes</a>
-                    				<div class="list-group-item">
-                    					<p class="list-group-item-text">
-                    						<ul id="listas">
-                                                <% Projeto.last(5).each do |p| %>
-                                                    <li class="list-group-item"><%= link_to "Projeto: " + p.titulo, "projetos/#{p.id}" %></li>
-                                                <% end %>
-                                            </ul>
-                    					</p>
-                    				</div>
-                    				<div class="list-group-item">
-                    					<span class="badge"></span>
-                    				</div> <a class="list-group-item active"><span class="badge"><%= Projeto.count %></span>Total de Projetos Cadastrados</a>
-                    			</div>
-                		    </div>
-                		</div>
-                    </div>
-                </div>
-            </div>
-                
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Controle de Bugs</div>
-                         <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <!-- STATUS ABERTO  -->              
-                            <div id="painel-2-box-laranja" class="list-group list-group-item col-md-6" style="background: #337ab7;">
-                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> STATUS: ABERTO <span class="badge badge-light"><%= Bug.where("status='Aberto'").count %></span></b></p>
-                                <div class="list-group-item">
-                                    <ul id="listas">
-                                        <% Bug.where('status=?', 'Aberto').each do |b| %>
-                                            <li class="list-group-item"><%= link_to "Bug: " + b.titulo, "bugs/#{b.id}" %></li>
-                                        <% end %>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- STATUS RESOLVIDO -->
-                            <div id="painel-2-box-azul" class="list-group list-group-item col-md-6" style="background: #03706a;">
-                                <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> STATUS: RESOLVIDO <span class="badge badge-light"><%= Bug.where("status='Resolvido'").count %></span></b></p>
-                                <div class="list-group-item">
-                                    <ul id="listas">
-                                        <% Bug.where('status=?', 'Resolvido').each do |b| %>
-                                            <li class="list-group-item"><%= link_to "Bug: " + b.titulo, "bugs/#{b.id}" %></li>
-                                        <% end %>
-                                    </ul>
-                                </div>             
-                            </div> 
-                        </div>
-                    </div>
-                </div><!-- /.col-lg-8 - Projetos-->
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Painel de Controle</h1>
         </div>
     </div>
-</div>
-
-
+         
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div id="painel-1-box" class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                             <i id="painel-1-icon" class="fa fa-cubes"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><%= Projeto.count %></div>
+                            <div>Projetos Cadastrados</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/projetos">
+                    <div class="panel-footer">
+                        <span class="pull-left">Ver Lista de Projetos</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div id="painel-1-box" class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i id="painel-1-icon" class="fa fa-bug" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><%= Bug.count %></div>
+                            <div>Bugs Cadastrados</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/bugs">
+                    <div class="panel-footer">
+                        <span class="pull-left">Ver Lista de Bugs</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
-    <!-- /#wrapper -->
+<!-- PAINEL PROJETOS -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Projetos</div>
+                <div class="panel-body">
+                    <!-- A FAZER  -->   
+                    <div class="col-md-6">
+                    	<div class="list-group">
+                    		<div class="list-group-item">
+                    			<p class="list-group-item-text">
+                        			<ul id="listas">
+                                        <% Projeto.last(5).each do |p| %>
+                                            <li class="list-group-item"><%= link_to "Projeto: " + p.titulo, "projetos/#{p.id}" %></li>
+                                        <% end %>
+                                    </ul>
+                    		    </p>
+                    		</div>
+                    		<div class="list-group-item">
+                    		    <span class="badge"></span>
+                    		</div> <a class="list-group-item active"><span class="badge"><%= Projeto.count %></span>Total de Projetos Cadastrados</a>
+                    	</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Controle de Bugs</div>
+                <div class="panel-body">
+                    <!-- STATUS ABERTO  -->              
+                    <div id="painel-2-box-laranja" class="list-group list-group-item col-md-6" style="background: #337ab7;">
+                            <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> STATUS: ABERTO <span class="badge badge-light"><%= Bug.where("status='Aberto'").count %></span></b></p>
+                        <div class="list-group-item">
+                            <ul id="listas">
+                                <% Bug.where('status=?', 'Aberto').each do |b| %>
+                                    <li class="list-group-item"><%= link_to "Bug: " + b.titulo, "bugs/#{b.id}" %></li>
+                                <% end %>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- STATUS RESOLVIDO -->
+                    <div id="painel-2-box-azul" class="list-group list-group-item col-md-6" style="background: #03706a;">
+                        <p><b><i class="fa fa-thumb-tack" aria-hidden="true"></i> STATUS: RESOLVIDO <span class="badge badge-light"><%= Bug.where("status='Resolvido'").count %></span></b></p>
+                        <div class="list-group-item">
+                            <ul id="listas">
+                                <% Bug.where('status=?', 'Resolvido').each do |b| %>
+                                    <li class="list-group-item"><%= link_to "Bug: " + b.titulo, "bugs/#{b.id}" %></li>
+                                <% end %>
+                            </ul>
+                        </div>             
+                    </div> 
+                 </div>
+            </div>
+        </div>
+</div>
 
