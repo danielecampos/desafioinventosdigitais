@@ -7,7 +7,12 @@
     </div>
          
     <div class="row">
-        <div class="col-lg-4 col-md-6">
+        <div class="col-md-12">
+             <a href="projetos/new" id="botao">Novo Projeto</a>
+             <a href="bugs/new" id="botao">Novo Bug</a>
+             <br><br>
+        </div>
+        <div class="col-md-6">
             <div id="painel-1-box" class="panel">
                 <div class="panel-heading">
                     <div class="row">
@@ -29,7 +34,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6">
+        <div class="col-md-6">
             <div id="painel-1-box" class="panel">
                 <div class="panel-heading">
                     <div class="row">
@@ -59,20 +64,19 @@
                 <div class="panel-heading">Projetos</div>
                 <div class="panel-body">
                     <!-- A FAZER  -->   
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                     	<div class="list-group">
                     		<div class="list-group-item">
                     			<p class="list-group-item-text">
                         			<ul id="listas">
-                                        <% Projeto.last(5).each do |p| %>
-                                            <li class="list-group-item"><%= link_to "Projeto: " + p.titulo, "projetos/#{p.id}" %></li>
+                                        <% Projeto.last(10).each do |p| %>
+                                            <li class="list-group-item">
+                                                <%= link_to "Projeto: " + p.titulo + " | Descrição: " + p.descricao, "projetos/#{p.id}" %>
+                                            </li>
                                         <% end %>
                                     </ul>
                     		    </p>
                     		</div>
-                    		<div class="list-group-item">
-                    		    <span class="badge"></span>
-                    		</div> <a class="list-group-item active"><span class="badge"><%= Projeto.count %></span>Total de Projetos Cadastrados</a>
                     	</div>
                 	</div>
                 </div>
