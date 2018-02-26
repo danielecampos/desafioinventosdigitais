@@ -12,29 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20180221221512) do
 
-  create_table "bugs", force: :cascade do |t|
-    t.integer "projeto_id"
-    t.string "titulo"
-    t.string "versao_bug_detectado"
-    t.string "descricao"
-    t.string "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["projeto_id"], name: "index_bugs_on_projeto_id"
-  end
-
-  create_table "projetos", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "titulo"
-    t.string "descricao"
-    t.datetime "previsao_termino"
-    t.string "status"
-    t.string "prioridade"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_projetos_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,6 +27,29 @@ ActiveRecord::Schema.define(version: 20180221221512) do
     t.string "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "projetos", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "titulo"
+    t.string "descricao"
+    t.datetime "previsao_termino"
+    t.string "status"
+    t.string "prioridade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_projetos_on_user_id"
+  end
+
+  create_table "bugs", force: :cascade do |t|
+    t.integer "projeto_id"
+    t.string "titulo"
+    t.string "versao_bug_detectado"
+    t.string "descricao"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["projeto_id"], name: "index_bugs_on_projeto_id"
   end
 
 end
